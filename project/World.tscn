@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://asset/map/Map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://asset/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://asset/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://asset/doooorp2-export.png" type="Texture" id=4]
+[ext_resource path="res://asset/plus/Portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://asset/enemy/slime.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 83.355
+
+[node name="World" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2085.15, 714.87 )
+
+[node name="Map" parent="." instance=ExtResource( 1 )]
+collision_mask = 6
+tile_data = PoolIntArray( 262138, 3, 0, 262139, 3, 0, 262140, 3, 0, 262141, 3, 0, 262142, 3, 0, 262143, 3, 0, 196608, 3, 0, 196609, 3, 0, 196610, 3, 0, 196611, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196620, 3, 0, 196621, 3, 0, 196622, 3, 0, 196623, 3, 0, 196624, 3, 0, 196627, 3, 0, 196628, 3, 0, 196629, 3, 0, 196630, 3, 0, 196631, 3, 0, 196632, 3, 0, 196633, 3, 0, 196634, 3, 0, 327675, 3, 0, 262168, 3, 0, 393211, 3, 0, 393213, 3, 0, 393214, 3, 0, 393215, 3, 0, 327680, 3, 0, 327681, 3, 0, 327682, 3, 0, 327683, 3, 0, 327684, 3, 0, 327685, 3, 0, 327686, 3, 0, 327687, 3, 0, 327688, 3, 0, 327689, 3, 0, 327690, 3, 0, 327691, 3, 0, 327692, 3, 0, 327693, 3, 0, 327694, 3, 0, 327695, 3, 0, 327696, 3, 0, 327697, 3, 0, 327704, 3, 0, 458747, 3, 0, 393240, 3, 0, 524283, 3, 0, 524284, 3, 0, 458776, 3, 0, 589819, 3, 0, 589820, 3, 0, 589821, 3, 0, 589822, 3, 0, 589823, 3, 0, 524288, 3, 0, 524289, 3, 0, 524290, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, 3, 0, 524297, 3, 0, 524298, 3, 0, 524299, 3, 0, 524300, 3, 0, 524301, 3, 0, 524302, 3, 0, 524303, 3, 0, 524304, 3, 0, 524305, 3, 0, 524306, 3, 0, 524307, 3, 0, 524308, 3, 0, 524309, 3, 0, 524310, 3, 0, 524311, 3, 0, 524312, 3, 0 )
+
+[node name="Portal" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3753.27, 1193.18 )
+scene = "res://Room.tscn"
+
+[node name="CollisionShape2D" parent="Portal" index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Portal"]
+position = Vector2( -0.000244141, -12.0289 )
+scale = Vector2( 1.09253, 1.24289 )
+texture = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 363.902, 381.422 )
+
+[node name="slime" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1226.07, 394.947 )
+
+[node name="slime2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1098.72, 714.4 )
+
+[editable path="Portal"]

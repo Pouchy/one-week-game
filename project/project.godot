@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="1 week"
+run/main_scene="res://Room.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Player="*res://asset/Player/Player.gd"
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player Hit"
+2d_physics/layer_3="Player Hurt"
+2d_physics/layer_4="Enemy Hit"
+2d_physics/layer_5="Enemy Hurt"
+
+[rendering]
+
+quality/2d/use_pixel_snap=true
+environment/default_environment="res://default_env.tres"
