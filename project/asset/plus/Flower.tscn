@@ -1,14 +1,27 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://asset/minus1-export.png" type="Texture" id=1]
 [ext_resource path="res://asset/pluse1-export.png" type="Texture" id=2]
 [ext_resource path="res://asset/plus/Flower.gd" type="Script" id=3]
+[ext_resource path="res://asset/FlowerStats.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 46.8673, 39.8346 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Grow"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "middle"
@@ -45,8 +58,8 @@ position = Vector2( -23.8831, -1.99025 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 25.8734, -4.07231 )
-scale = Vector2( 0.485849, 0.407068 )
+position = Vector2( 24.7994, -2.10335 )
+scale = Vector2( 0.347127, 0.328757 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -58,3 +71,6 @@ shape = SubResource( 1 )
 anims/Grow = SubResource( 2 )
 anims/middle = SubResource( 3 )
 anims/smol = SubResource( 4 )
+
+[node name="FlowerStats" parent="." instance=ExtResource( 4 )]
+health = 4

@@ -4,7 +4,9 @@ extends KinematicBody2D
 const UP = Vector2(0, -1)
 
 var motion = Vector2.ZERO
+var flower = FlowerStats
 
+signal dead
 
 export(String, FILE, "*.tscn") var scene
 
@@ -12,10 +14,6 @@ export var speed = 200
 export var accel = 50
 export var gravity = 20
 export var jump = 400
-
-onready var flower = get_node("res://asset/plus/Flower.gd")
-
-signal dead
 
 func _physics_process(delta: float) -> void:
 	$AnimationPlayer.play("Idle")
@@ -41,4 +39,6 @@ func _on_Hurtbox_area_entered(area: Area2D) -> void:
 	if area.name == "Hitbox":
 		print("-1")
 		get_tree().change_scene(scene)
-		emit_signal("dead")
+#		emit_signal("dead")
+		flower.health -= 0.2
+		print(flower.health)
