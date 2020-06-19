@@ -1,21 +1,24 @@
-extends StaticBody2D
+extends Area2D
 
-export(float) var health = 5 #setget set_health
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	state()
+var small = preload("res://asset/minus1-export.png")
+var medium = preload("res://asset/middle-export.png")
+var large = preload("res://asset/pluse1-export.png")
+
+
+
+func _process(delta):
 	anim()
 
-func state():
-	if $FlowerStats.health < 3:
-		$AnimationPlayer.play("smol")
-	elif $FlowerStats.health < 5:
-		$AnimationPlayer.play("middle")
-	elif $FlowerStats.health >= 5:
-		$AnimationPlayer.play("Grow")
-		
 
 func anim():
-	if Input.is_action_pressed("ui_down"):
-		$AnimationPlayer.play("smol")
+	var stat = get_node("FlowerStats")
+	var image = get_node("Sprite")
+	if stat.health < 3:
+		image.set_texture(small)
+	elif stat.health < 5:
+		image.set_texture(medium)
+	elif Input.is_action_pressed("big"):# key e
+		image.set_texture(large)
+	if Input.is_action_pressed("small"):# key a
+		print(stat.health)

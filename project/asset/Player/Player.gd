@@ -37,8 +37,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_Hurtbox_area_entered(area: Area2D) -> void:
 	if area.name == "Hitbox":
-		print("-1")
 		get_tree().change_scene(scene)
-#		emit_signal("dead")
-		flower.health -= 0.2
-		print(flower.health)
+		flower.test(0.2)
